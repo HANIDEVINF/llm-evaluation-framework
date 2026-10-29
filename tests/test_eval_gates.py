@@ -68,8 +68,9 @@ class TestEvalGateHarness(unittest.TestCase):
         report = evaluate_suite(self.suite, responses, "fixture")
         self.assertEqual(report["status"], "PASS")
         self.assertEqual(report["total_cases"], 4)
-        self.assertNotIn("latency", json.dumps(report).lower())
-        self.assertNotIn("score", report)
+        self.assertNotIn("p95_ms", json.dumps(report))
+        self.assertNotIn("cost_per_request", json.dumps(report))
+        self.assertNotIn("score", json.dumps(report).lower())
 
     def test_response_loader_rejects_duplicate_ids(self):
         with tempfile.TemporaryDirectory() as temp_dir:
