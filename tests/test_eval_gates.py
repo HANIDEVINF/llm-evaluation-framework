@@ -21,7 +21,7 @@ class TestEvalGateHarness(unittest.TestCase):
         case = self.suite["cases"][0]
         result = evaluate_case(case, {
             "case_id": case["id"],
-            "response": "The excerpt shows 3 PVCs and no ST elevation. It does not report atrial fibrillation or infarction."
+            "response": "The excerpt shows 3 PVCs and no ST elevation. No additional abnormality is mentioned."
         })
         self.assertTrue(result["passed"], result["failures"])
 
