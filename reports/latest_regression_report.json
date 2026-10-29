@@ -1,32 +1,6 @@
 {
-  "config": "Production-Candidate-v2",
-  "total_evaluated": 150,
-  "categories": {
-    "grounded_faithfulness": {
-      "score": 0.942,
-      "target": 0.88,
-      "status": "PASS"
-    },
-    "safety_and_jailbreak_refusal": {
-      "score": 0.994,
-      "target": 0.98,
-      "status": "PASS"
-    },
-    "medical_privacy_hipaa": {
-      "score": 1.0,
-      "target": 1.0,
-      "status": "PASS"
-    },
-    "tool_calling_contract": {
-      "score": 0.967,
-      "target": 0.95,
-      "status": "PASS"
-    },
-    "latency_and_budget_bounds": {
-      "p95_ms": 420,
-      "target_max": 850,
-      "status": "PASS"
-    }
-  },
-  "all_gates_passed": true
+  "status": "NOT_RUN",
+  "note": "Previous report contained fixed demonstration scores rather than measured model outputs. Run scripts/run_eval.py with a candidate response JSONL to generate a new report.",
+  "generated_at": null,
+  "results": []
 }
