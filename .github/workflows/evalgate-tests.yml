@@ -1,0 +1,23 @@
+name: EvalGate Python checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Smoke-test the evaluator with labelled fixture data
+        run: python scripts/run_eval.py --suite benchmarks/benchmark_suite_v1.json --responses examples/illustrative_responses.jsonl --config illustrative-fixture
