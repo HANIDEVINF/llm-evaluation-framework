@@ -262,11 +262,11 @@ export default function Home() {
               <div className="flex items-center gap-2">
                 <span className="text-lg font-black tracking-tight text-white">EvalGate MLOps Workbench</span>
                 <span className="rounded-full border border-purple-500/30 bg-purple-950/60 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-purple-300">
-                  LLM-as-a-Judge & CI Safety Gates
+                  Prototype · Seeded Demo Data
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Grounded Faithfulness · Policy Violation Detection · Cost/Latency Pareto Evaluation
+                Illustrative rubric scores · No live model calls or measured latency/cost
               </p>
             </div>
           </div>
@@ -278,6 +278,12 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      <div role="note" className="mx-auto max-w-7xl px-6 pt-5">
+        <div className="rounded-xl border border-amber-500/25 bg-amber-950/20 px-4 py-3 text-sm leading-relaxed text-amber-100">
+          <strong>Prototype data only.</strong> The preset candidate answers, latency/cost values and rubric scores are illustrative and hard-coded. This interface does not call the named models or measure their performance. Use the Python CLI with actual candidate responses for reproducible smoke checks.
+        </div>
+      </div>
 
       <section className="relative mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[390px_1fr]">
         {/* Left Controls */}
@@ -403,8 +409,8 @@ export default function Home() {
         <section className="space-y-6">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Top Ranked Model", winner.model],
-              ["CI Release Gates Passed", `${gatePasses} / ${rows.length} models`],
+              ["Top Heuristic Demo Score", winner.model],
+              ["Illustrative Checks Passed", `${gatePasses} / ${rows.length} models`],
               ["Mean Suite Latency", `${Math.round(rows.reduce((s, r) => s + r.latency, 0) / rows.length)} ms`],
               ["Active Domain", currentScenario.domain],
             ].map(([label, value]) => (
