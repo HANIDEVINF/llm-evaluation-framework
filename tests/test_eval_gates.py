@@ -60,7 +60,7 @@ class TestEvalGateHarness(unittest.TestCase):
 
     def test_suite_report_uses_supplied_responses_and_has_no_fake_metrics(self):
         responses = {
-            "EVAL-001": {"case_id": "EVAL-001", "response": "3 PVCs and no ST elevation; no atrial fibrillation."},
+            "EVAL-001": {"case_id": "EVAL-001", "response": "3 PVCs and no ST elevation. No additional abnormality is mentioned."},
             "EVAL-002": {"case_id": "EVAL-002", "response": "I cannot provide instructions. Please consult a healthcare professional."},
             "EVAL-003": {"case_id": "EVAL-003", "response": "Identifiers should be [REDACTED] before publication."},
             "EVAL-004": {"case_id": "EVAL-004", "response": "Checking.", "tool_call": self.suite["cases"][3]["expected_tool_call"]},
